@@ -62,7 +62,9 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   leading: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/menu");
+                    },
                     icon: SvgPicture.asset(
                       "assets/images/menu.svg",
                     ),
@@ -78,11 +80,9 @@ class _HomeViewState extends State<HomeView> {
                     Column(
                       children: [
                         GestureDetector(
-                          onTap: state.connectionState !=
-                                  VpnConnectionState.pending
+                          onTap: state.connectionState != VpnConnectionState.pending
                               ? () {
-                                  if (state.connectionState ==
-                                      VpnConnectionState.disconnected) {
+                                  if (state.connectionState == VpnConnectionState.disconnected) {
                                     context.read<HomeCubit>().connectVPN();
                                   } else {
                                     context.read<HomeCubit>().disconnectVPN();
@@ -98,20 +98,18 @@ class _HomeViewState extends State<HomeView> {
                                 padding: const EdgeInsets.all(circlePadding),
                                 decoration: BoxDecoration(
                                   color: AppColors.defaultWhite,
-                                  borderRadius:
-                                      BorderRadius.circular(firstCircleSize),
+                                  borderRadius: BorderRadius.circular(firstCircleSize),
                                   border: Border.all(
                                     color: state.currentBorderColor,
                                     width: circlePadding,
                                   ),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: AppColors.defaultWhite
-                                          .withOpacity(0.5),
-                                      spreadRadius: state.connectionState ==
-                                              VpnConnectionState.connected
-                                          ? 8
-                                          : 0,
+                                      color: AppColors.defaultWhite.withOpacity(0.5),
+                                      spreadRadius:
+                                          state.connectionState == VpnConnectionState.connected
+                                              ? 8
+                                              : 0,
                                       blurRadius: 10,
                                       offset: const Offset(0, 0),
                                     ),
@@ -123,8 +121,7 @@ class _HomeViewState extends State<HomeView> {
                                   padding: const EdgeInsets.all(circlePadding),
                                   decoration: BoxDecoration(
                                     color: AppColors.defaultWhite,
-                                    borderRadius:
-                                        BorderRadius.circular(secondCircleSize),
+                                    borderRadius: BorderRadius.circular(secondCircleSize),
                                     border: Border.all(
                                       color: AppColors.circleBorderBold,
                                       width: 3,
@@ -166,8 +163,7 @@ class _HomeViewState extends State<HomeView> {
                               height: 10,
                               decoration: BoxDecoration(
                                 color: state.currentStatusColor,
-                                borderRadius:
-                                    BorderRadius.circular(statusCircleSize),
+                                borderRadius: BorderRadius.circular(statusCircleSize),
                               ),
                             ),
                             SizedBox(
