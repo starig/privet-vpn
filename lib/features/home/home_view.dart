@@ -182,7 +182,7 @@ class _HomeViewState extends State<HomeView> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10),
                       child: GestureDetector(
                         onTap: () {
                           showModalBottomSheet(
@@ -224,7 +224,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -16,7 +16,7 @@ class SocialMediaButton extends StatelessWidget {
         color: AppColors.primaryPurple,
         borderRadius: BorderRadius.circular(40),
       ),
-      child: SvgPicture.asset(iconUrl, color: AppColors.defaultWhite,),
+      child: SvgPicture.asset(iconUrl),
     );
   }
 }

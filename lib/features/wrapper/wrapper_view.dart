@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class WrapperView extends StatelessWidget {
   final Widget child;
-  const WrapperView({super.key, required this.child});
+  final bool? ignoresSafeArea;
+  const WrapperView({super.key, required this.child, this.ignoresSafeArea});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,11 @@ class WrapperView extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
-        SafeArea(
-          child: child,
-        ),
+        ignoresSafeArea == true
+            ? child
+            : SafeArea(
+                child: child,
+              ),
       ],
     );
   }

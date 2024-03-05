@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:privet_vpn/features/home/home_view.dart';
+import 'package:privet_vpn/features/authscreen/auth_view.dart';
 
 class AppView extends StatefulWidget {
   const AppView({super.key});
@@ -22,7 +22,7 @@ class _AppViewState extends State<AppView> {
         //     fit: BoxFit.cover,
         //   ),
         // ),
-        child: HomeView(),
+        child: AuthView(),
       ),
     );
   }

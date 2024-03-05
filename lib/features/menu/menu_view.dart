@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:privet_vpn/config/colors.dart';
+import 'package:privet_vpn/features/menu/components/menu_item.dart';
 import 'package:privet_vpn/features/menu/components/social_media_button.dart';
 import 'package:privet_vpn/features/wrapper/wrapper_view.dart';
 
@@ -14,7 +15,6 @@ class MenuView extends StatefulWidget {
 
 class _MenuViewState extends State<MenuView> {
   static const double containerPadding = 22;
-  static const double forwardArrowSize = 22;
   static const double ipContainerRadius = 37;
   static const double ipContainerPadding = 10;
 
@@ -74,33 +74,22 @@ class _MenuViewState extends State<MenuView> {
                   ),
                   Column(
                     children: [
-                      ListTile(
-                        leading: SvgPicture.asset("assets/images/premium.svg"),
-                        title: const Text("Подписка"),
-                        trailing: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: AppColors.primaryPurple,
-                          size: forwardArrowSize,
-                        ),
+                      MenuItem(
+                        title: "Подписка",
+                        iconUrl: "assets/images/premium.svg",
+                        onTap: () {},
                       ),
-                      ListTile(
-                        leading: SvgPicture.asset("assets/images/user.svg"),
-                        title: const Text("Профиль"),
-                        trailing: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: AppColors.primaryPurple,
-                          size: forwardArrowSize,
-                        ),
+                      MenuItem(
+                        title: "Профиль",
+                        iconUrl: "assets/images/user.svg",
+                        onTap: () {
+                          Navigator.pushNamed(context, "/profile");
+                        },
                       ),
-                      ListTile(
-                        leading: SvgPicture.asset("assets/images/headphones.svg"),
-                        title: const Text("Поддержка"),
-                        trailing: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: AppColors.primaryPurple,
-                          size: forwardArrowSize,
-                        ),
-                      ),
+                      MenuItem(
+                          title: "Поддержка",
+                          iconUrl: "assets/images/headphones.svg",
+                          onTap: () {}),
                     ],
                   ),
                 ],
@@ -141,7 +130,10 @@ class _MenuViewState extends State<MenuView> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                 ],
               )
             ],
