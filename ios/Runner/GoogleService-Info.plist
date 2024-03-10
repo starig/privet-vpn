@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>591551138638-au808u0nn2k64c1itvrca5r291ktdm5v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.591551138638-au808u0nn2k64c1itvrca5r291ktdm5v</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>591551138638-sq0ap4eorh1meidm2pvenc8vsm6jlv2o.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDi-bl40wpXdjUDwHB7ssW3Bqw9XRSvi90</string>
+	<key>GCM_SENDER_ID</key>
+	<string>591551138638</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.privetVpn</string>
+	<key>PROJECT_ID</key>
+	<string>privet-1a0f9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>privet-1a0f9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:591551138638:ios:298268bb1f3c9bf5526c1f</string>
+</dict>
+</plist>

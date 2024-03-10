@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "591551138638",
+    "project_id": "privet-1a0f9",
+    "storage_bucket": "privet-1a0f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591551138638:android:ccde6b111f01e1ef526c1f",
+        "android_client_info": {
+          "package_name": "com.example.privet_vpn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591551138638-sq0ap4eorh1meidm2pvenc8vsm6jlv2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.privet_vpn",
+            "certificate_hash": "5566b8bc83e4f7987196180d3d88b2e62d9f5c12"
+          }
+        },
+        {
+          "client_id": "591551138638-gkr7sh80pvitebrfot85cs579uikor9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXZXvsVUGMq1SBGiPxL4I03wcARMbXWZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591551138638-gkr7sh80pvitebrfot85cs579uikor9p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "591551138638-au808u0nn2k64c1itvrca5r291ktdm5v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.privetVpn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

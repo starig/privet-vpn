@@ -28,6 +28,23 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>GIDClientID</key>
+    <!-- TODO Replace this value: -->
+    <!-- Copied from GoogleService-Info.plist key CLIENT_ID -->
+    <string>591551138638-au808u0nn2k64c1itvrca5r291ktdm5v.apps.googleusercontent.com</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    			<!-- TODO Replace this value: -->
+    			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+    			<string>com.googleusercontent.apps.591551138638-au808u0nn2k64c1itvrca5r291ktdm5v</string>
+    		</array>
+    	</dict>
+    </array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -41,6 +58,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>keychain-access-groups</key>
+        <array>
+            <string>$(AppIdentifierPrefix)com.google.GIDSignIn</string>
+        </array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
