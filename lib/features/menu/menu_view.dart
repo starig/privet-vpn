@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:privet_vpn/config/colors.dart';
+import 'package:privet_vpn/features/authscreen/state/auth_cubit.dart';
 import 'package:privet_vpn/features/menu/components/menu_item.dart';
 import 'package:privet_vpn/features/menu/components/social_media_button.dart';
 import 'package:privet_vpn/features/wrapper/wrapper_view.dart';
@@ -112,8 +114,9 @@ class _MenuViewState extends State<MenuView> {
                   ),
                   CupertinoButton(
                     padding: EdgeInsets.zero,
-                    onPressed: () {
-                      print("haha");
+                    onPressed: () async {
+                      await context.read<AuthCubit>().logout();
+                      Navigator.pop(context);
                     },
                     child: Container(
                       height: 60,

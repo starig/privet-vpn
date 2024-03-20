@@ -1,9 +1,17 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:privet_vpn/config/api.dart';
 import 'package:privet_vpn/config/colors.dart';
+import 'package:privet_vpn/config/constants.dart';
+import 'package:privet_vpn/data/models/server_item/server_item.dart';
 import 'package:privet_vpn/features/home/home_model.dart';
 
 part 'home_state.dart';
+
+final dio = Dio();
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit()
@@ -13,7 +21,33 @@ class HomeCubit extends Cubit<HomeState> {
           currentStatusText: "Disconnected",
           connectionState: VpnConnectionState.disconnected,
           currentCrossFadeState: CrossFadeState.showFirst,
+          servers: [],
+          selectedServer: null,
         ));
+
+  Future<void> getServers() async {
+    try {
+      Response response = await PrivetAPI().dio.get("$baseURL/getServers");
+      inspect(response.data);
+      if (response.data != null) {
+        List<ServerItem> serversList = [];
+        response.data.forEach((server) => serversList.add(ServerItem.fromJson(server)));
+        state.servers = serversList;
+        state.selectedServer = serversList.first;
+        emit(state.copyWith(
+          servers: state.servers,
+          selectedServer: state.selectedServer,
+        ));
+      }
+    } catch (e) {
+      inspect(e);
+    }
+  }
+
+  void selectServer(ServerItem server) async {
+    state.selectedServer = server;
+    emit(state.copyWith(selectedServer: state.selectedServer));
+  }
 
   connectVPN() async {
     state.currentBorderColor = AppColors.primaryOrange;

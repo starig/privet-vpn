@@ -56,7 +56,7 @@ class _AuthViewState extends State<AuthView> {
                           InkWell(
                             onTap: () async {
                               await context.read<AuthCubit>().signInWithGoogle();
-                              Navigator.pushNamed(context, "/home");
+                              // Navigator.pushNamed(context, "/home");
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(vertical: 8),

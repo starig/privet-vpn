@@ -20,6 +20,14 @@ class _HomeViewState extends State<HomeView> {
   static const double circlePadding = 14;
   static const double statusCircleSize = 10;
 
+  late final Future _getServersFuture;
+
+  @override
+  void initState() {
+    _getServersFuture = context.read<HomeCubit>().getServers();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
@@ -183,46 +191,66 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10),
-                      child: GestureDetector(
-                        onTap: () {
-                          showModalBottomSheet(
-                              context: context,
-                              showDragHandle: true,
-                              isScrollControlled: true,
-                              useSafeArea: true,
-                              builder: (BuildContext context) {
-                                return ServerListSheet();
-                              });
-                        },
-                        child: Container(
-                          height: 52,
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: AppColors.defaultWhite,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset("assets/images/flag.png"),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text(
-                                    "Нидерланды",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
+                      child: FutureBuilder(
+                        future: _getServersFuture,
+                        builder: (BuildContext context, snapshot) {
+                          return GestureDetector(
+                            onTap: () async {
+                              await context.read<HomeCubit>().getServers();
+                              if (snapshot.connectionState == ConnectionState.done) {
+                                showModalBottomSheet(
+                                    context: context,
+                                    showDragHandle: true,
+                                    isScrollControlled: true,
+                                    useSafeArea: true,
+                                    builder: (BuildContext context) {
+                                      return ServerListSheet();
+                                    });
+                              }
+                            },
+                            child: Container(
+                              height: 52,
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: AppColors.defaultWhite,
+                                borderRadius: BorderRadius.circular(40),
                               ),
-                              SvgPicture.asset("assets/images/arrowUp.svg"),
-                            ],
-                          ),
-                        ),
+                              child: state.selectedServer != null
+                                  ? Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(41),
+                                              child: Image.network(
+                                                state.selectedServer!.flag,
+                                                width: 41,
+                                                height: 41,
+                                                fit: BoxFit.contain,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 8,
+                                            ),
+                                            Text(
+                                              state.selectedServer!.name,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 16,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        SvgPicture.asset("assets/images/arrowUp.svg"),
+                                      ],
+                                    )
+                                  : Center(
+                                      child: CircularProgressIndicator(),
+                                    ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
